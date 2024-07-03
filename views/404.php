@@ -1,9 +1,14 @@
 <?php include "partials/header.php"; ?>
 <?php include "partials/nav.php"; ?>
-<?php include "partials/banner.php"; ?>
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <p>Hello wellcome to <?= $header ?> page</p>
+      <h1 class="text-2xl font-blod">
+        <p>Sorry Page not found</p>
+      </h1>
+      <p class="mt-4">
+          <a href="/">Back to Home</a>
+      </p>
+      
     </div>
   </main>
 </div>

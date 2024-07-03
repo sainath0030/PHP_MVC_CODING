@@ -1,4 +1,4 @@
 <?php
 $header =   "About Us";
 
-include "views/index.view.php";
+include "views/about.view.php";

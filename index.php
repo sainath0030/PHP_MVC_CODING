@@ -1,14 +1,18 @@
 <?php
 require "functions.php";
 
-$url  = $_SERVER['REQUEST_URI'];
+$url  = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-if($url === '/'){
-    require 'controllers/index.php';
-} else if($url === '/about'){
-    require 'controllers/about.php';
-} else if($url === '/contact'){
-    require 'controllers/contact.php';
+$routes =   [
+    '/' => 'controllers/index.php',
+    '/about' => 'controllers/about.php',
+    '/contact' => 'controllers/contact.php',
+];
+
+if(array_key_exists($url, $routes)){
+    require $routes[$url];
 }else{
-    require 'controllers/404.php';
+    http_response_code(404);
+    require 'views/404.php';
+    die();
 }

@@ -1,26 +1,13 @@
 <?php
 require "functions.php";
 //require "router.php";
+require "Database.php";
+
 
 // connect to mysql database.
+$config  = require "config.php";
 
-class Databse {
-    public $connection;
+$db = new Database($config['database']);
 
-    public function __construct(){
-        $dsn    = "mysql:host=localhost;port=3306;dbname=myapp;user=root;password=Sai@1234;charset=utf8mb4";
-        $this->connection =  new PDO($dsn);
-    }
-    
-    public function query($query){
-        $statement= $this->connection->prepare($query);
-
-        $statement->execute();
-
-        return $statement;
-    }
-}
-
-$db = new Databse();
-$post   =   $db->query("select * from posts where id =1")->fetch(PDO::FETCH_ASSOC);
-DD($post['title']);
+$posts   =   $db->query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
+DD($posts);

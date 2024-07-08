@@ -10,3 +10,9 @@ function dd($value){
     echo "<pre>";
     die();
 }
+
+function authrize($condition, $status = Response::FORBIDDEN){
+    if(! $condition){
+        abort($status);
+    }
+}

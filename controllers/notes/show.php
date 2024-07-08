@@ -12,4 +12,4 @@ $currentUserId  =   9;
 
 authrize($note['user_id'] == $currentUserId);
 
-include "views/note.view.php";
+include "views/notes/show.view.php";

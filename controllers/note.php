@@ -6,16 +6,10 @@ $header =   "Note";
 
 $note   =   $db->query('SELECT * FROM notes where id = :id', [
     'id' => $_GET['id']
-])->fetch();
-
-if(! $note){
-    abort();
-}
+])->findOrFail();
 
 $currentUserId  =   9;
 
-if($note['user_id'] != $currentUserId){
-    abort(Response::FORBIDDEN);
-}
+authrize($note['user_id'] == $currentUserId);
 
 include "views/note.view.php";

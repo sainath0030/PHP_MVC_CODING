@@ -1,10 +1,10 @@
 <?php
 
-$routes = require("routes.php");
+$routes = require base_path('routes.php');
 
 function abort($code =404){
     http_response_code($code);
-    require "views/{$code}.php";
+    require view("{$code}.php");
     die();
 }
 function routeToController($url,$routes){

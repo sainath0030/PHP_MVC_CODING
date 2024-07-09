@@ -1,6 +1,6 @@
-<?php include "partials/header.php"; ?>
-<?php include "partials/nav.php"; ?>
-<?php include "partials/banner.php"; ?>
+<?php require base_path('views/partials/header.php'); ?>
+<?php require base_path('views/partials/nav.php'); ?>
+<?php require base_path('views/partials/banner.php'); ?>
 
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -18,8 +18,8 @@
                         required placeholder="Please add  body here"><?= $_POST['body'] ?? '' ?></textarea>
 
                   </div> 
-                  <?php if(isset($error['body'])) :?>
-                    <p class="text-red-500 text-xs mt-2"> <?= $error['body'] ?></p> 
+                  <?php if(isset($errors['body'])) :?>
+                    <p class="text-red-500 text-xs mt-2"> <?= $errors['body'] ?></p> 
                   <?php endif; ?>              
                 </div>
               </div>
@@ -37,4 +37,4 @@
   </main>
 </div>
 
-<?php include "partials/footer.view.php" ?>
+<?php require base_path('views/partials/footer.view.php') ?>

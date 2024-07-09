@@ -1,6 +1,6 @@
-<?php include "partials/header.php"; ?>
-<?php include "partials/nav.php"; ?>
-<?php include "partials/banner.php"; ?>
+<?php require base_path('views/partials/header.php'); ?>
+<?php require base_path('views/partials/nav.php'); ?>
+<?php require base_path('views/partials/banner.php'); ?>
 
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -9,10 +9,10 @@
         <a href="/notes" class ="text-blue-500 underline"> go back .. </a>
       </p>
       <p>
-          <?= $note['body'] ?>           
+          <?= htmlspecialchars($note['body']) ?>           
       </p>
     </div>
   </main>
 </div>
 
-<?php include "partials/footer.view.php" ?>
+<?php require base_path('views/partials/footer.view.php') ?>

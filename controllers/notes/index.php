@@ -1,11 +1,13 @@
 <?php
-$config  = require "config.php";
-$db = new Database($config['database']);
+$config  = require base_path('config.php');
 
-$header =   "Notes";
+$db = new Database($config['database']);
 
 $query  =   'SELECT * FROM notes where user_id=9';
 
 $notes   =   $db->query($query)->get();
 
-include "views/notes/index.view.php";
+view('notes/index.view.php', [
+    'notes'    => $notes ,
+    'heading'   => 'Notes',
+]);

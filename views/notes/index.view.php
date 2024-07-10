@@ -22,4 +22,4 @@
   </main>
 </div>
 
-<?php require base_path('views/partials/footer.view.php') ?>
+<?php require base_path('views/partials/footer.php') ?>

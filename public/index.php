@@ -1,5 +1,4 @@
 <?php
-
 use Core\Router;
 
 const BASE_PATH  = __DIR__ . '/../';

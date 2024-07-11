@@ -6,9 +6,9 @@ $config  = require base_path('config.php');
 
 $db = new Database($config['database']);
 
-$query  =   'SELECT * FROM notes where user_id=9';
-
-$notes   =   $db->query($query)->get();
+$notes   =   $db->query('SELECT * FROM notes where user_id = :user_id', [
+                'user_id' => 3,
+                    ])->get();
 
 view('notes/index.view.php', [
     'notes'    => $notes ,

@@ -6,15 +6,39 @@ $config  = require base_path('config.php');
 
 $db = new Database($config['database']);
 
-$note   =   $db->query('SELECT * FROM notes where id = :id', [
-    'id' => $_GET['id']
-])->findOrFail();
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    
+    $currentUserId  =   3;
 
-$currentUserId  =   9;
+    $note   =   $db->query('SELECT * FROM notes where id = :id', [
+        'id' => $_POST['id']
+    ])->findOrFail();
+    
+       
+    authrize($note['user_id'] === $currentUserId);
+     
+    $db->query('DELETE FROM notes where id = :id', [
+        'id' => $_POST['id']
+    ]);    
 
-authrize($note['user_id'] == $currentUserId);
+    header('location: /notes');
+    
+    exit();
 
-view('notes/show.view.php', [
-    'note'    => $note ,
-    'heading'   => 'Note',
-]);
+} else{
+
+    $currentUserId  =  3;
+
+    $note   =   $db->query('SELECT * FROM notes where id = :id', [
+        'id' => $_GET['id']
+    ])->findOrFail();    
+    
+    
+    authrize($note['user_id'] === $currentUserId);
+    
+    view('notes/show.view.php', [
+        'note'    => $note ,
+        'heading'   => 'Note',
+    ]);
+}
+

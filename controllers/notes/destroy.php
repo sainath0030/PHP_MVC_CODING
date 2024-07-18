@@ -12,7 +12,7 @@ $db =   App::resolve(Database::class);
     ])->findOrFail();
     
        
-    authrize($note['user_id'] === $currentUserId);
+    authorize($note['user_id'] === $currentUserId);
      
     $db->query('DELETE FROM notes where id = :id', [
         'id' => $_POST['id']

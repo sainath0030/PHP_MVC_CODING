@@ -14,10 +14,12 @@
         </li>
         <?php endforeach; ?>
       </ul>
-
-      <p>
-        <a href="/notes/create" class="text-green-500 hover:underline"> Create Note</a>
-      </p>
+      <footer class="mt-6">
+        <p>
+          <a href="/notes/create" class="text-green-500  border border-current px-3 py-2 rounded"> Create Note</a>
+        </p>
+      </footer>    
+      
     </div>
   </main>
 </div>

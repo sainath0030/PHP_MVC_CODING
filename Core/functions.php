@@ -12,7 +12,7 @@ function dd($value){
     die();
 }
 
-function authrize($condition, $status = Response::FORBIDDEN){
+function authorize($condition, $status = Response::FORBIDDEN){
     if(! $condition){
         abort($status);
     }

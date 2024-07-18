@@ -18,6 +18,7 @@ $router = new Router();
 
 $routes = require base_path('routes.php');
 
+$routes = require base_path('views/bootstrap.php');
 
 $uri  = parse_url($_SERVER['REQUEST_URI'])['path'];
 

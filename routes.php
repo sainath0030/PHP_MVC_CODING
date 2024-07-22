@@ -20,4 +20,8 @@ $router->get('/notes/edit', 'controllers/notes/edit.php');
 
 $router->post('/notes', 'controllers/notes/store.php');
 
+$router->get('/registration', 'controllers/registration/create.php');
+
+$router->post('/registration', 'controllers/registration/store.php');
+
 

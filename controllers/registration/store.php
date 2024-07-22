@@ -53,7 +53,7 @@ if($user){
         [
             'name' => 'Name',
             'email' => $email,
-            'password' => $password,
+            'password' => password_hash($password, PASSWORD_BCRYPT)
         ]);
 
     $_SESSION['user']   =[

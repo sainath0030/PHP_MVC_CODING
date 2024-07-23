@@ -40,9 +40,11 @@ $user =  $db->query("select * from users where email = :email",
 // if yes, redirect to login page
 
 if($user){
-    $errors['email']    =   'Email already exist.';
+  
     view('registration/create.view.php', [
-        'errors'    => $errors 
+        'errors'    =>[
+            'email' => 'Email already exist.'
+        ] 
     ]);
     exit();
 } else {
@@ -56,9 +58,9 @@ if($user){
             'password' => password_hash($password, PASSWORD_BCRYPT)
         ]);
 
-    $_SESSION['user']   =[
+    login([
         'email' => $email
-        ];
+    ]);
         
     header('location: /');
 

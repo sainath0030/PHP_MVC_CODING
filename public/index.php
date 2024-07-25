@@ -1,8 +1,10 @@
 <?php
 session_start();
 error_reporting( E_ALL );
-ini_set( "display_errors", 1 ); 
+ini_set( "display_errors", 1 );
+
 use Core\Router;
+use Core\Session;
 
 const BASE_PATH  = __DIR__ . '/../';
 
@@ -27,4 +29,6 @@ $uri  = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method =   $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 $router->router($uri, $method);
+
+Session::unFlash();
 

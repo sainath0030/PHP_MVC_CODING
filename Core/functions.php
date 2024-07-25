@@ -43,3 +43,8 @@ function abort($code = 404)
     require base_path("views/{$code}.php");
     die();
 }
+
+function old($key, $default = '')
+{
+    return Core\Session::get('old')['email'] ?? $default ;
+}

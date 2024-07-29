@@ -1,0 +1,17 @@
+{
+    "name": "webdeveloper/interview",
+    "authors": [
+        {
+            "name": "Sainath",
+            "email": "sainath0030@gmail.com"
+        }
+    ],
+    "require": {},
+
+    "autoload": {
+        "psr-4": {
+            "Core\\":"Core/",
+            "Http\\":"Http/"            
+        }
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 error_reporting( E_ALL );
 ini_set( "display_errors", 1 );
 
@@ -10,21 +10,19 @@ use Core\ValidationException;
 
 const BASE_PATH  = __DIR__ . '/../';
 
+require BASE_PATH . '/vendor/autoload.php';
+
+session_start();
+
 require BASE_PATH . 'Core/functions.php';
 
-spl_autoload_register(function($class){
+/* php running - sudo php -S localhost:82 -t public */
 
-    $class  =   str_replace('\\', DIRECTORY_SEPARATOR, $class);
-
-    require base_path("{$class}.php");
-
-});
+require base_path('views/bootstrap.php');
 
 $router = new Router();
 
 $routes = require base_path('routes.php');
-
-$routes = require base_path('views/bootstrap.php');
 
 $uri  = parse_url($_SERVER['REQUEST_URI'])['path'];
 

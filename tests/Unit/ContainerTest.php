@@ -21,4 +21,4 @@ test('it can not resolve', function(){
     $result =   $container->resolve('foo');
 
     expect($result)->toEqual('bar');
-})->only();
+});

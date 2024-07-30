@@ -1,17 +1,28 @@
 {
     "name": "webdeveloper/interview",
+    
     "authors": [
         {
             "name": "Sainath",
             "email": "sainath0030@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/collections": "^11.18"
+    },
 
     "autoload": {
         "psr-4": {
             "Core\\":"Core/",
             "Http\\":"Http/"            
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.34"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
